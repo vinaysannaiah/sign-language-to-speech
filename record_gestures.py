@@ -38,7 +38,9 @@ if cam.isOpened():
 		area[i] = cv2.contourArea(contours[i])
 	index = area.argmax()
 	hand = contours[index]
-
+	x, y, w, h = cv2.boundingRect(hand)
+	cv2.rectangle(roi, (x, y), (x+w, y+h), (0, 0, 255), 0)
+	temp = np.zeros(roi.shape, np.uint8)
 
 
 
